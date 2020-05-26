@@ -26,10 +26,11 @@
     myConnector.getData = function(table, doneCallback) {
     
         var param_years = [2009,2010,2011,2012,2013,2014,2015,2016,2017];
+        var tableData = []; 
 
         param_years.forEach(function(value){
             $.ajax({ 
-                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="&value&"&prefCode=13&cityCode=-&displayType=2",
+                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="+value+"&prefCode=13&cityCode=-&displayType=2",
                 dataType: 'json',
                 type: "GET",
                 headers: {
@@ -37,7 +38,6 @@
                 }, 
                 async: "false" ,
                 success: function(resp) {
-                    var tableData = []; 
 
                     for ( i = 0; i < resp.result.years.length; i++ ) {
                         tableData.push({
@@ -50,12 +50,12 @@
                         "value": resp.result.years[i].value
                         });
                     }
-
-                    table.appendRows(tableData);
                 },
             });
         });
-        doneCallback();    
+        table.appendRows(tableData); 
+        doneCallback();
+          
     };
 
     tableau.registerConnector(myConnector);
