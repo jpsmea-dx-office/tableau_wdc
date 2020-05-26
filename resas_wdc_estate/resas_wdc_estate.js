@@ -25,7 +25,7 @@
 
     myConnector.getData = function(table, doneCallback) {
     $.ajax({ 
-        url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year=2017&prefCode=13&cityCode=-&displayType=2",
+        url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year=2016,2017&prefCode=13&cityCode=-&displayType=2",
         dataType: 'json',
         type: "GET",
         headers: {
