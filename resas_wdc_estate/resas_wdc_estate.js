@@ -27,7 +27,7 @@
     
         var param_years = [2009,2010,2011,2012,2013,2014,2015,2016,2017];
 
-        $.each(param_years,function(index,value){
+        param_years.forEach(function(value){
             $.ajax({ 
                 url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="&value&"&prefCode=13&cityCode=-&displayType=2",
                 dataType: 'json',
@@ -59,6 +59,7 @@
     };
 
     tableau.registerConnector(myConnector);
+    
 })();
 
 $(document).ready(function () {
