@@ -27,9 +27,9 @@
     
         var param_years = [2009,2010,2011,2012,2013,2014,2015,2016,2017];
 
-        param_years.each(function(param_year){
+        $.each(param_years,function(index,value){
             $.ajax({ 
-                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="&param_year&"&prefCode=13&cityCode=-&displayType=2",
+                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="&value&"&prefCode=13&cityCode=-&displayType=2",
                 dataType: 'json',
                 type: "GET",
                 headers: {
