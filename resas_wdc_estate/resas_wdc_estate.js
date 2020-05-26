@@ -25,37 +25,46 @@
 
     myConnector.getData = function(table, doneCallback) {
     
-        var param_years = [2009,2010,2011,2012,2013,2014,2015,2016,2017];
+
+        var param_years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017'];
+        var prefCode = 1;
         var tableData = []; 
 
-        param_years.forEach(function(value){
+        var foo = function(){
+            var year = param_years.shift();
             $.ajax({ 
-                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="+value+"&prefCode=13&cityCode=-&displayType=2",
+                url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="+year+"&prefCode="+prefCode+"&cityCode=-&displayType=2",
                 dataType: 'json',
                 type: "GET",
                 headers: {
                     'X-API-KEY': resas_api_key
                 }, 
-                async: "false" ,
-                success: function(resp) {
-
-                    for ( i = 0; i < resp.result.years.length; i++ ) {
-                        tableData.push({
-                        "prefCode": resp.result.prefCode,
-                        "prefName": resp.result.prefName,
-                        "cityCode": resp.result.cityCode,
-                        "cityName": resp.result.cityName,
-                        "displayType": "土地(商業地)",
-                        "year": resp.result.years[i].year,
-                        "value": resp.result.years[i].value
-                        });
+                async: "false"
+            }).done(function(resp) {
+                tableData.push({
+                    "prefCode": resp.result.prefCode,
+                    "prefName": resp.result.prefName,
+                    "cityCode": resp.result.cityCode,
+                    "cityName": resp.result.cityName,
+                    "displayType": "土地(商業地)",
+                    "year": resp.result.years[0].year,
+                    "value": resp.result.years[0].value
+                });
+                if(param_years.length){
+                    foo();
+                }else{
+                    if(prefCode < 47){
+                        param_years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017'];
+                        prefCode++;
+                        foo();
+                    }else{
+                        table.appendRows(tableData);
+                        doneCallback();     
                     }
-                },
+                }
             });
-        });
-        table.appendRows(tableData); 
-        doneCallback();
-          
+        };
+        foo();
     };
 
     tableau.registerConnector(myConnector);
