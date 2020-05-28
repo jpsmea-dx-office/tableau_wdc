@@ -23,15 +23,28 @@
         schemaCallback([tableInfo]);
     };
 
-    myConnector.getData = function(table, doneCallback) {
-    
+    function sleep(waitSec, callbackFunc) {
+        var spanedSec = 0;
+        var waitFunc = function () {
+            spanedSec++;
+            if (spanedSec >= waitSec) {
+                if (callbackFunc) callbackFunc();
+                return;
+            }
+            clearTimeout(id);
+            id = setTimeout(waitFunc, 1000);
+        };
+        var id = setTimeout(waitFunc, 1000);
+    };
 
+    myConnector.getData = function(table, doneCallback) {
         var param_years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017'];
         var prefCode = 1;
         var tableData = []; 
 
         var foo = function(){
             var year = param_years.shift();
+
             $.ajax({ 
                 url: "https://opendata.resas-portal.go.jp/api/v1/townPlanning/estateTransaction/bar?year="+year+"&prefCode="+prefCode+"&cityCode=-&displayType=2",
                 dataType: 'json',
@@ -51,12 +64,16 @@
                     "value": resp.result.years[0].value
                 });
                 if(param_years.length){
-                    foo();
+                    sleep(2,function(){
+                        foo();
+                    });
                 }else{
                     if(prefCode < 47){
                         param_years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017'];
                         prefCode++;
-                        foo();
+                        sleep(2,function(){
+                            foo();
+                        });
                     }else{
                         table.appendRows(tableData);
                         doneCallback();     
@@ -65,6 +82,7 @@
             });
         };
         foo();
+        
     };
 
     tableau.registerConnector(myConnector);
