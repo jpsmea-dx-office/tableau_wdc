@@ -64,14 +64,14 @@
                     "value": resp.result.years[0].value
                 });
                 if(param_years.length){
-                    sleep(2,function(){
+                    sleep(3,function(){
                         foo();
                     });
                 }else{
                     if(prefCode < 47){
                         param_years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017'];
                         prefCode++;
-                        sleep(2,function(){
+                        sleep(3,function(){
                             foo();
                         });
                     }else{
