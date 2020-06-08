@@ -8,7 +8,7 @@
         var cols = [
             { id : "id", alias : "管理ID", dataType : tableau.dataTypeEnum.string },
             { id : "mngGroup", alias : "管理グループID", dataType : tableau.dataTypeEnum.string },
-            { id : "catalog_id", alias : "カテゴリID", dataType : tableau.dataTypeEnum.string },
+            { id : "catalog_name", alias : "カタログ名", dataType : tableau.dataTypeEnum.string },
             { id : "specialMeasure", alias : "特定施策区分", dataType : tableau.dataTypeEnum.string },
             { id : "published", alias : "公開状態", dataType : tableau.dataTypeEnum.bool },
             { id : "deleted", alias : "削除状態", dataType : tableau.dataTypeEnum.bool },
@@ -32,7 +32,7 @@
             { id : "baseOverride", alias : "制度変更区分", dataType : tableau.dataTypeEnum.string },
             { id : "target", alias : "対象者", dataType : tableau.dataTypeEnum.string },
             { id : "applicationTarget", alias : "用途・対象物", dataType : tableau.dataTypeEnum.string },
-            { id : "prefectures_id", alias : "都道府県ID", dataType : tableau.dataTypeEnum.string },
+            { id : "prefectures_name", alias : "都道府県ID", dataType : tableau.dataTypeEnum.string },
             { id : "area", alias : "対象地域群", dataType : tableau.dataTypeEnum.string },
             { id : "maxEmployeesCount", alias : "従業員条件(人以下)", dataType : tableau.dataTypeEnum.int },
             { id : "maxCapital", alias : "資本金条件(円以下)", dataType : tableau.dataTypeEnum.int },
@@ -98,7 +98,7 @@
                     tableData.push({
                         "id" : resp.items[i].id,
                         "mngGroup"  : (resp.items[i].mng_group)?resp.items[i].mng_group:"",
-                        "catalog_id"  : (resp.items[i].catalog && resp.items[i].catalog.id)?resp.items[i].catalog.id:"",
+                        "catalog_name"  : (resp.items[i].catalog && resp.items[i].catalog.name)?resp.items[i].catalog.name:"",
                         "specialMeasure"  : (resp.items[i].special_measure && resp.items[i].special_measure.name)?resp.items[i].special_measure.name:"",
                         "published"  : (resp.items[i].published)?resp.items[i].published:"",
                         "deleted"  : (resp.items[i].deleted)?resp.items[i].deleted:"",
@@ -122,7 +122,7 @@
                         "baseOverride"  : (resp.items[i].base_override)?resp.items[i].base_override:"",
                         "target"  : (resp.items[i].target)?resp.items[i].target:"",
                         "applicationTarget"  : (resp.items[i].application_target)?resp.items[i].application_target:"",
-                        "prefectures_id"  : (resp.items[i].prefectures)?resp.items[i].prefectures.map(function(obj){return obj.id}).join(','):"",
+                        "prefectures_name"  : (resp.items[i].prefectures)?resp.items[i].prefectures.map(function(obj){return obj.name}).join(','):"",
                         "area"  : (resp.items[i].area)?resp.items[i].area:"",
                         "maxEmployeesCount"  : (resp.items[i].max_employees_count)?resp.items[i].max_employees_count:"",
                         "maxCapital"  : (resp.items[i].max_capital)?resp.items[i].max_capital:"",
@@ -138,12 +138,12 @@
                         "reference"  : (resp.items[i].reference)?resp.items[i].reference:"",
                         "support_organization"  : (resp.items[i].support_organization)?resp.items[i].support_organization:"",
                         "inquiry"  : (resp.items[i].inquiry)?resp.items[i].inquiry:"",
-                        "industry_categories_id"  : (resp.items[i].industry_categories)?resp.items[i].industry_categories.map(function(obj){return obj.id}).join(','):"",
-                        "stage_categories_id"  : (resp.items[i].stage_categories)?resp.items[i].stage_categories.map(function(obj){return obj.id}).join(','):"",
-                        "service_categories_id"  : (resp.items[i].service_categories)?resp.items[i].service_categories.map(function(obj){return obj.id}).join(','):"",
+                        "industry_categories_name"  : (resp.items[i].industry_categories)?resp.items[i].industry_categories.map(function(obj){return obj.name}).join(','):"",
+                        "stage_categories_name"  : (resp.items[i].stage_categories)?resp.items[i].stage_categories.map(function(obj){return obj.name}).join(','):"",
+                        "service_categories_name"  : (resp.items[i].service_categories)?resp.items[i].service_categories.map(function(obj){return obj.name}).join(','):"",
                         "purpose_categories_id"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.id}).join(','):"",
                         "purpose_categories_name"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.name}).join(','):"",
-                        "disasters_id"  : (resp.items[i].disasters)?resp.items[i].disasters.map(function(obj){return obj.id}).join(','):"",
+                        "disasters_name"  : (resp.items[i].disasters)?resp.items[i].disasters.map(function(obj){return obj.name}).join(','):"",
                         "keywords"  : (resp.items[i].keywords)?resp.items[i].keywords.join(','):""
                     });
                 }
