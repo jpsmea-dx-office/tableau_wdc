@@ -146,7 +146,7 @@
                         "purpose_categories_id"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.id}).join(','):"",
                         "purpose_categories_name"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.name}).join(','):"",
                         "disasters_id"  : (resp.items[i].disasters)?resp.items[i].disasters.map(function(obj){return obj.id}).join(','):"",
-                        "keywords"  : (resp.items[i].keywards)?resp.items[i].keywards.map(function(obj){return obj.id}).join(','):""
+                        "keywords"  : (resp.items[i].keywards)?resp.items[i].keywards.join(','):""
                     });
                 }
                 if (offset < 900) {
