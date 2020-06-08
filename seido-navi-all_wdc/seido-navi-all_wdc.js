@@ -9,7 +9,7 @@
             { id : "id", alias : "管理ID", dataType : tableau.dataTypeEnum.string },
             { id : "mngGroup", alias : "管理グループID", dataType : tableau.dataTypeEnum.string },
             { id : "catalog_id", alias : "カテゴリID", dataType : tableau.dataTypeEnum.string },
-            { id : "specialMeasure", alias : "特定施策区分", dataType : tableau.dataTypeEnum.bool },
+            { id : "specialMeasure", alias : "特定施策区分", dataType : tableau.dataTypeEnum.string },
             { id : "published", alias : "公開状態", dataType : tableau.dataTypeEnum.bool },
             { id : "deleted", alias : "削除状態", dataType : tableau.dataTypeEnum.bool },
             { id : "publishDate", alias : "公開日", dataType : tableau.dataTypeEnum.date },
