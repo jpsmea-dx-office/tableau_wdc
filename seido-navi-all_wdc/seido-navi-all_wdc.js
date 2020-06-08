@@ -48,12 +48,12 @@
             { id : "reference", alias : "詳細参照先", dataType : tableau.dataTypeEnum.string },
             { id : "support_organization", alias : "実施組織・支援機関", dataType : tableau.dataTypeEnum.string },
             { id : "inquiry", alias : "お問合せ先", dataType : tableau.dataTypeEnum.string },
-            { id : "industry_categories_id", alias : "標準産業分類ID", dataType : tableau.dataTypeEnum.string },
-            { id : "stage_categories_id", alias : "事業ステージ分類ID", dataType : tableau.dataTypeEnum.string },
-            { id : "service_categories_id", alias : "行政サービス分類ID", dataType : tableau.dataTypeEnum.string },
+            { id : "industry_categories_name", alias : "標準産業分類", dataType : tableau.dataTypeEnum.string },
+            { id : "stage_categories_name", alias : "事業ステージ分類", dataType : tableau.dataTypeEnum.string },
+            { id : "service_categories_name", alias : "行政サービス分類", dataType : tableau.dataTypeEnum.string },
             { id : "purpose_categories_id", alias : "お困りごと分類ID", dataType : tableau.dataTypeEnum.string },
             { id : "purpose_categories_name", alias : "お困りごと分類", dataType : tableau.dataTypeEnum.string },
-            { id : "disasters_id", alias : "災害ID", dataType : tableau.dataTypeEnum.string },
+            { id : "disasters_name", alias : "災害名", dataType : tableau.dataTypeEnum.string },
             { id : "keywords", alias : "キーワード", dataType : tableau.dataTypeEnum.string }
         ];
 
