@@ -99,7 +99,7 @@
                         "id" : resp.items[i].id,
                         "mngGroup"  : (resp.items[i].mng_group)?resp.items[i].mng_group:"",
                         "catalog_id"  : (resp.items[i].catalog && resp.items[i].catalog.id)?resp.items[i].catalog.id:"",
-                        "specialMeasure"  : (resp.items[i].specialMeasure)?resp.items[i].specialMeasure:"",
+                        "specialMeasure"  : (resp.items[i].specialMeasure && resp.items[i].specialMeasure.name)?resp.items[i].specialMeasure.name:"",
                         "published"  : (resp.items[i].published)?resp.items[i].published:"",
                         "deleted"  : (resp.items[i].deleted)?resp.items[i].deleted:"",
                         "publishDate"  : (resp.items[i].publishDate)?resp.items[i].publishDate:"",
