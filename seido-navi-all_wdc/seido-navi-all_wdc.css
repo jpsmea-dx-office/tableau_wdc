@@ -1,0 +1,9 @@
+.vertical-center {
+  align-items[i]: center;
+  text-align: center;
+  background-color: white;
+}
+
+.logodiv {
+    margin-bottom: 10px;
+}
