@@ -98,7 +98,7 @@
                     tableData.push({
                         "id" : resp.items[i].id,
                         "mngGroup"  : (resp.items[i].mng_group)?resp.items[i].mng_group:"",
-                        "catalog_name"  : (resp.items[i].catalogs && resp.items[i].catalogs.name)?resp.items[i].catalogs.name:"",
+                        "catalog_name"  : (resp.items[i].catalogs)?resp.items[i].catalogs.map(function(obj){return obj.name}).join(','):"",
                         "specialMeasure"  : (resp.items[i].special_measure && resp.items[i].special_measure.name)?resp.items[i].special_measure.name:"",
                         "published"  : (resp.items[i].published)?resp.items[i].published:"",
                         "deleted"  : (resp.items[i].deleted)?resp.items[i].deleted:"",
@@ -115,7 +115,7 @@
                         "hasCaseStudies"  : (resp.items[i].has_case_studies)?resp.items[i].has_case_studies:"",
                         "title"  : (resp.items[i].title)?resp.items[i].title:"",
                         "subTitle"  : (resp.items[i].subtitle)?resp.items[i].subtitle:"",
-                        "competentAuthorities"  : (resp.items[i].competent_authorities && resp.items[i].competent_authorities.name)?resp.items[i].competent_authorities.name:"",
+                        "competentAuthorities"  : (resp.items[i].competent_authorities)?resp.items[i].competent_authorities.map(function(obj){return obj.name}).join(','):"",
                         "number"  : (resp.items[i].number)?resp.items[i].number:"",
                         "baseId"  : (resp.items[i].base_id)?resp.items[i].base_id:"",
                         "baseNumber"  : (resp.items[i].base_number)?resp.items[i].base_number:"",
