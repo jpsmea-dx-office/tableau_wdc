@@ -148,7 +148,7 @@
                         "purpose_categories_name"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.name}).join(','):"",
                         "disasters_name"  : (resp.items[i].disasters)?resp.items[i].disasters.map(function(obj){return obj.name}).join(','):"",
                         "keywords"  : (resp.items[i].keywords)?resp.items[i].keywords.join(','):"",
-                        "url" : 'https://seido-navi.mirasapo-plus.go.jp/'+resp.items[i].id
+                        "url" : 'https://seido-navi.mirasapo-plus.go.jp/supports/'+resp.items[i].id
                     });
                 }
                 if (offset < 900) {
