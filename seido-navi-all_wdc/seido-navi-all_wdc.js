@@ -55,7 +55,8 @@
             { id : "purpose_categories_id", alias : "お困りごと分類ID", dataType : tableau.dataTypeEnum.string },
             { id : "purpose_categories_name", alias : "お困りごと分類", dataType : tableau.dataTypeEnum.string },
             { id : "disasters_name", alias : "災害名", dataType : tableau.dataTypeEnum.string },
-            { id : "keywords", alias : "キーワード", dataType : tableau.dataTypeEnum.string }
+            { id : "keywords", alias : "キーワード", dataType : tableau.dataTypeEnum.string },
+            { id : "url", alias : "サイトURL", dataType : tableau.dataTypeEnum.string }
         ];
 
         var tableInfo = {
@@ -146,7 +147,8 @@
                         "purpose_categories_id"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.id}).join(','):"",
                         "purpose_categories_name"  : (resp.items[i].purpose_categories)?resp.items[i].purpose_categories.map(function(obj){return obj.name}).join(','):"",
                         "disasters_name"  : (resp.items[i].disasters)?resp.items[i].disasters.map(function(obj){return obj.name}).join(','):"",
-                        "keywords"  : (resp.items[i].keywords)?resp.items[i].keywords.join(','):""
+                        "keywords"  : (resp.items[i].keywords)?resp.items[i].keywords.join(','):"",
+                        "url" : 'https://seido-navi.mirasapo-plus.go.jp/'+resp.items[i].id
                     });
                 }
                 if (offset < 900) {
