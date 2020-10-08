@@ -99,7 +99,7 @@
                             "prefName": resp.result.prefName,
                             "cityCode": resp.result.cityCode,
                             "cityName": resp.result.cityName,
-                            "year": data.years,
+                            "year": data.year,
                             "value": data.value
                         });    
                     })
