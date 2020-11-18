@@ -99,7 +99,7 @@
 
                     tableData.push({
                         "id" : resp.items[i].id,
-                        "mngGroups"  : (resp.items[i].mng_groups)?resp.items[i].mng_groups.map(function(obj){return obj.name}).join(','):"",
+                        "mngGroups"  : (resp.items[i].mng_groups)?resp.items[i].mng_groups.join(','):"",
                         "catalog_name"  : (resp.items[i].catalogs)?resp.items[i].catalogs.map(function(obj){return obj.name}).join(','):"",
                         "specialMeasure"  : (resp.items[i].special_measure && resp.items[i].special_measure.name)?resp.items[i].special_measure.name:"",
                         "published"  : (resp.items[i].published)?resp.items[i].published:"",
