@@ -7,7 +7,7 @@
     myConnector.getSchema = function (schemaCallback) {
         var cols = [
             { id : "id", alias : "管理ID", dataType : tableau.dataTypeEnum.string },
-            { id : "mngGroup", alias : "管理グループID", dataType : tableau.dataTypeEnum.string },
+            { id : "mngGroups", alias : "管理グループID", dataType : tableau.dataTypeEnum.string },
             { id : "catalog_name", alias : "カタログ名", dataType : tableau.dataTypeEnum.string },
             { id : "specialMeasure", alias : "特定施策区分", dataType : tableau.dataTypeEnum.string },
             { id : "published", alias : "公開状態", dataType : tableau.dataTypeEnum.bool },
@@ -99,7 +99,7 @@
 
                     tableData.push({
                         "id" : resp.items[i].id,
-                        "mngGroup"  : (resp.items[i].mng_group)?resp.items[i].mng_group:"",
+                        "mngGroups"  : (resp.items[i].mng_groups)?resp.items[i].mng_groups.map(function(obj){return obj.name}).join(','):"",
                         "catalog_name"  : (resp.items[i].catalogs)?resp.items[i].catalogs.map(function(obj){return obj.name}).join(','):"",
                         "specialMeasure"  : (resp.items[i].special_measure && resp.items[i].special_measure.name)?resp.items[i].special_measure.name:"",
                         "published"  : (resp.items[i].published)?resp.items[i].published:"",
